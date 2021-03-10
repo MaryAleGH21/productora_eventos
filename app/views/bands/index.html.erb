@@ -1,13 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Bands</h1>
+<h1 class= 'text-center'>Bands</h1>
+<br>
 
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Start date</th>
+      <th scope="col">Name</th>
+      <th scope="col">Kind</th>
+      <th scope="col">Start date</th>
+      <th scope="col">Band Concert</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,6 +20,7 @@
         <td><%= band.name %></td>
         <td><%= band.kind %></td>
         <td><%= band.start_date %></td>
+        <td><%= band.concerts.count %></td>
         <td><%= link_to 'Show', band %></td>
         <td><%= link_to 'Edit', edit_band_path(band) %></td>
         <td><%= link_to 'Destroy', band, method: :delete, data: { confirm: 'Are you sure?' } %></td>
