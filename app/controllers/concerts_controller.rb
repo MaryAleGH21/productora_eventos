@@ -1,6 +1,6 @@
 class ConcertsController < ApplicationController
   before_action :set_concert, only: %i[ show edit update destroy]
-  before_action :set_band, only: %i[ index show new edit update create]
+  before_action :set_band
   # GET /concerts or /concerts.json
 
   def index
@@ -39,7 +39,7 @@ class ConcertsController < ApplicationController
   # PATCH/PUT /concerts/1 or /concerts/1.json
   def update
     respond_to do |format|
-      if @concert.update(concert_params)
+      if @concert.update(concert_params.merge(band:@band))
         format.html { redirect_to band_concert_path(@band, @concert), notice: "Concert was successfully updated." }
         format.json { render :show, status: :ok, location: @concert }
       else
